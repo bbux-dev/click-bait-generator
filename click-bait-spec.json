@@ -1,0 +1,60 @@
+{
+  "millenials": {
+    "type": "templated",
+    "refs": ["NOUNS"],
+    "data": "Are Millenials Killing the {{ NOUNS }} Industry?"
+  },
+  "dontKnow": {
+    "type": "templated",
+    "refs": ["NOUNS", "PLURAL_NOUNS", "WHEN"],
+    "data": "Without This {{ NOUNS }}, {{ PLURAL_NOUNS }} Could Kill You {{ WHEN }}"
+  },
+  "bigCompanies": {
+    "type": "templated",
+    "refs": ["OBJECT_PRONOUNS", "STATES", "NOUNS", "NOUNS2"],
+    "data": "Big Companies Hate {{ OBJECT_PRONOUNS }}! See How This {{ STATES }} {{ NOUNS }} Invented a Cheaper {{ NOUNS2 }}"
+  },
+  "wontBelieve": {
+    "type": "templated",
+    "refs": ["STATES", "NOUNS", "POSSESIVE_PRONOUNS", "PLACES"],
+    "data": "You Won't Believe What This {{ STATES }} {{ NOUNS }} Found in {{ POSSESIVE_PRONOUNS }} {{ PLACES }}"
+  },
+  "giftIdeas": {
+    "type": "templated",
+    "refs": ["RAND_INT_7_15", "NOUNS", "STATES"],
+    "data": "{{ RAND_INT_7_15 }} Gift Ideas to Give Your {{ NOUNS }} From {{ STATES }}"
+  },
+  "reasonsWhy": {
+    "type": "templated",
+    "refs": ["RAND_INT_3_19", "PLURAL_NOUNS", "NUMBER_LESS_THAN"],
+    "data": "{{ RAND_INT_3_19 }} Reasons Why {{ PLURAL_NOUNS }} Are More Interesting Than You Think (Number {{ NUMBER_LESS_THAN }} Will Surprise You!)"
+  },
+  "jobAutomated": {
+    "type": "templated",
+    "refs": ["STATES", "NOUNS", "PRONOUN_PAIRS"],
+    "data": "This {{ STATES }} {{ NOUNS }} Didn't Think Robots Would Take {{ PRONOUN_PAIRS[0] }} Job. {{ PRONOUN_PAIRS[1] }}{%if PRONOUN_PAIRS[0] == 'Their' %} Were {% else %} Was {% endif %}Wrong."
+  },
+  "refs": {
+    "RAND_INT_7_15:rand_int_range": [7, 15],
+    "RAND_INT_3_19:rand_int_range": [3, 19],
+    "NUMBER_LESS_THAN": {
+      "type": "calculate",
+      "refs": ["RAND_INT_3_19"],
+      "formula": "{{ range(1, RAND_INT_3_19) | random }}"
+    },
+    "OBJECT_PRONOUNS": ["Her", "Him", "Them"],
+    "POSSESIVE_PRONOUNS": ["Her", "His", "Their"],
+    "PERSONAL_PRONOUNS": ["She", "He", "They"],
+    "PRONOUN_PAIRS": [["Her", "She"], ["His", "He"], ["Their", "They"]],
+    "STATES": ["California", "Texas", "Florida", "New York", "Pennsylvania",
+              "Illinois", "Ohio", "Georgia", "North Carolina", "Michigan"],
+    "NOUNS": ["Athlete", "Clown", "Shovel", "Paleo Diet", "Doctor", "Parent",
+             "Cat", "Dog", "Chicken", "Robot", "Video Game", "Avocado",
+             "Plastic Straw","Serial Killer", "Telephone Psychic"],
+    "NOUNS2:ref": "NOUNS",
+    "PLURAL_NOUNS:ref?suffix=s": "NOUNS",
+    "PLACES": ["House", "Attic", "Bank Deposit Box", "School", "Basement",
+              "Workplace", "Donut Shop", "Apocalypse Bunker"],
+    "WHEN": ["Soon", "This Year", "Later Today", "RIGHT NOW", "Next Week"]
+  }
+}
